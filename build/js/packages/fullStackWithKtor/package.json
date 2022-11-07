@@ -1,0 +1,16 @@
+{
+  "name": "fullStackWithKtor",
+  "version": "1.0.0",
+  "main": "kotlin\\fullStackWithKtor.js",
+  "devDependencies": {
+    "webpack": "5.73.0",
+    "webpack-cli": "4.10.0",
+    "format-util": "1.0.5",
+    "source-map-loader": "4.0.0",
+    "webpack-dev-server": "4.9.2"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

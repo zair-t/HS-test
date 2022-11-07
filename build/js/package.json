@@ -1,0 +1,24 @@
+{
+  "name": "fullStackWithKtor",
+  "version": "1.0",
+  "private": true,
+  "workspaces": [
+    "packages\\fullStackWithKtor",
+    "packages\\fullStackWithKtor-test",
+    "packages_imported\\kotlin\\1.7.20",
+    "packages_imported\\kotlin-react\\18.2.0-pre.346",
+    "packages_imported\\kotlin-react-core\\18.2.0-pre.346",
+    "packages_imported\\kotlin-csstype\\3.1.0-pre.346",
+    "packages_imported\\kotlin-extensions\\1.0.1-pre.346",
+    "packages_imported\\kotlin-react-dom\\18.2.0-pre.346",
+    "packages_imported\\kotlin-browser\\0.0.1-pre.346",
+    "packages_imported\\kotlin-emotion\\11.9.3-pre.346",
+    "packages_imported\\kotlin-test-js-runner\\1.7.20"
+  ],
+  "resolutions": {},
+  "devDependencies": {},
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

@@ -1,0 +1,44 @@
+{
+  "version": "9",
+  "items": {
+    "7d7e827c71d9e691b7b84b82e2675e95": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-stdlib-common\\1.7.20\\e15351bdaf9fa06f009be5da7a202e4184f00ae3\\kotlin-stdlib-common-1.7.20.jar"
+    },
+    "58a1f849599c38af0f93386c64580ed6": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-stdlib-js\\1.7.20\\a47d234c0db34861c2d770a0e8fb8935735e1b0b\\kotlin-stdlib-js-1.7.20.jar",
+      "target": "kotlin\\1.7.20"
+    },
+    "154ea301c1e5f8c162a7a9f7bc47446d": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin-wrappers\\kotlin-react\\18.2.0-pre.346\\4e531b22c98d1dad456a3af6beacf44f62521a55\\kotlin-react-18.2.0-pre.346.jar",
+      "target": "kotlin-react\\18.2.0-pre.346"
+    },
+    "9dea4cad78910217483bac4f068c38c9": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin-wrappers\\kotlin-react-core\\18.2.0-pre.346\\a0f87c7075da5d77a92cc0a3a89b5b689ee3020d\\kotlin-react-core-18.2.0-pre.346.jar",
+      "target": "kotlin-react-core\\18.2.0-pre.346"
+    },
+    "f1cc0ceec8316823801970019927b001": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin-wrappers\\kotlin-csstype\\3.1.0-pre.346\\6d6f6f25c200e64a0f394478800475e13e55666d\\kotlin-csstype-3.1.0-pre.346.jar",
+      "target": "kotlin-csstype\\3.1.0-pre.346"
+    },
+    "f311e2c7921fbb0dbd01649cc9be1a00": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin-wrappers\\kotlin-extensions\\1.0.1-pre.346\\7a7396d37ac99f1957fb04900ead742197fff19b\\kotlin-extensions-1.0.1-pre.346.jar",
+      "target": "kotlin-extensions\\1.0.1-pre.346"
+    },
+    "c18cce55662edc0fdb46974339cbb54c": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin-wrappers\\kotlin-react-dom\\18.2.0-pre.346\\33fc987d346657d66a422e5439901ed924528ec5\\kotlin-react-dom-18.2.0-pre.346.jar",
+      "target": "kotlin-react-dom\\18.2.0-pre.346"
+    },
+    "7a42fa450c84cf86e6f583faae3d9a15": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin-wrappers\\kotlin-browser\\0.0.1-pre.346\\30b94c2d43dd123c229b36cb1d4d9ccf41a2fff2\\kotlin-browser-0.0.1-pre.346.jar",
+      "target": "kotlin-browser\\0.0.1-pre.346"
+    },
+    "99ef60391617570e6ba0d9881a4db804": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin-wrappers\\kotlin-emotion\\11.9.3-pre.346\\629c53ebbd63eee11eb949bb6995eb238b5d37ab\\kotlin-emotion-11.9.3-pre.346.jar",
+      "target": "kotlin-emotion\\11.9.3-pre.346"
+    },
+    "895195c673d7ea83de5af201c50e8279": {
+      "src": "C:\\Users\\Zair\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-test-js-runner\\1.7.20\\c776694bcd8ec38ab942d5ca1d896ca805c9541f\\kotlin-test-js-runner-1.7.20.jar",
+      "target": "kotlin-test-js-runner\\1.7.20"
+    }
+  }
+}
