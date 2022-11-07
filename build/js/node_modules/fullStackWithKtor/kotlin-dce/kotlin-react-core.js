@@ -14,14 +14,11 @@
   }
 }(this, function (_, Kotlin, $module$react) {
   'use strict';
-  var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var defineInlineFunction = Kotlin.defineInlineFunction;
   var Unit = Kotlin.kotlin.Unit;
   var wrapFunction = Kotlin.wrapFunction;
-  var isValidElement = $module$react.isValidElement;
   var IllegalArgumentException_init = Kotlin.kotlin.IllegalArgumentException_init_pdl1vj$;
-  $$importsForInline$$.react = $module$react;
   return _;
 }));
 

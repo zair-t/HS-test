@@ -7,6 +7,18 @@ import react.create
 import react.dom.client.createRoot
 
 fun main() {
+    //get an url of our route
+    val path: List<String> = document.URL.split("/")
+
+    if(path.size >= 2 && path[path.size - 2] == "chats"){
+        (document.getElementById("clear") as HTMLButtonElement).apply {
+            innerText = "CLEAR CHAT"
+        }
+        (document.getElementById("send") as HTMLInputElement).apply {
+            value = "SEND MESSAGE"
+        }
+    }
+
     //get name of our user
     val name: String = document.getElementsByTagName("h1").get(0)!!.innerHTML
     //create a websocket request

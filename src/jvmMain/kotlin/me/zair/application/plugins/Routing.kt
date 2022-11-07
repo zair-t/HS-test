@@ -78,6 +78,9 @@ fun Application.configureRouting() {
         //to the / path and responds with a html page
         get("/") {
             call.respondHtml {
+                head{
+                    link(rel = "stylesheet", href = "/static/login.css", type = "text/css")
+                }
                 body {
                     form(
                         action = "/main",

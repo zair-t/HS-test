@@ -23,18 +23,15 @@
   }
 }(this, function (_, Kotlin, $module$kotlin_extensions, $module$_emotion_css, $module$kotlin_csstype, $module$_emotion_styled) {
   'use strict';
-  var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var defineInlineFunction = Kotlin.defineInlineFunction;
   var wrapFunction = Kotlin.wrapFunction;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var FROM_PERCENTAGE;
   var TO_PERCENTAGE;
   var index;
-  $$importsForInline$$['@emotion/css'] = $module$_emotion_css;
   FROM_PERCENTAGE = (0).toString() + '%';
   TO_PERCENTAGE = (100).toString() + '%';
   index = 0;
-  return _;
 }));
 
 //# sourceMappingURL=kotlin-emotion.js.map
