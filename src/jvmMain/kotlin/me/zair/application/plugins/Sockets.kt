@@ -51,14 +51,14 @@ fun Application.configureSockets() {
                         //delete all messages from db for this chat
                         val msgs: List<Message> = dao.allMessages()
                         for(i in msgs.indices){
-                            if(msgs[i].whatChat == call.parameters.getOrFail("name")){
+                            if(msgs[i].whatChat == call.parameters.getOrFail("name").substringAfter(": ")){
                                 dao.deleteMessage(msgs[i].id)
                             }
                         }
                     }
                     else {
                         //add new message to bd
-                        dao.addMessage(call.parameters.getOrFail("name"), thisConnection.name, receivedText)
+                        dao.addMessage(call.parameters.getOrFail("name").substringAfter(": "), thisConnection.name, receivedText)
                         val textWithUsername = "[${thisConnection.name}]: $receivedText"
                         //send message for each connection
                         connections.forEach {

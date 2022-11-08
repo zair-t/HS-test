@@ -7,7 +7,7 @@ import react.create
 import react.dom.client.createRoot
 
 fun main() {
-    //get an url of our route
+  /*  //get an url of our route
     val path: List<String> = document.URL.split("/")
 
     if(path.size >= 2 && path[path.size - 2] == "chats"){
@@ -17,7 +17,7 @@ fun main() {
         (document.getElementById("send") as HTMLInputElement).apply {
             value = "SEND MESSAGE"
         }
-    }
+    }*/
 
     //get name of our user
     val name: String = document.getElementsByTagName("h1").get(0)!!.innerHTML
@@ -26,7 +26,7 @@ fun main() {
         onmessage = {
             //if we get a message
             //we add it to our div element which id is "history"
-            val div = document.getElementById("history") as HTMLDivElement
+            val div = document.getElementById("history") as HTMLTableElement
 
             div.innerHTML = "${div.innerHTML}<br>${it.data as String}"
 
@@ -38,15 +38,15 @@ fun main() {
     (document.getElementById("send") as HTMLInputElement).apply {
         onclick = {
             val message = (document.getElementById("message") as HTMLInputElement).value
-
             ws.send(message)
         }
+        value = "SEND"
     }
     //similar with |^| button
-    (document.getElementById("clear") as HTMLButtonElement).apply {
-       value = "Clear"
+    (document.getElementById("clear") as HTMLInputElement).apply {
         onclick = {
             ws.send("cleaning")
         }
+        value = "CLEAR"
     }
 }

@@ -1,0 +1,50 @@
+body {
+    background-image: url("ha.jpg");
+}
+
+div h1 {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+
+div h2 {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+
+#message{
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    right: 45%;
+}
+
+#send{
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    right: 35%;
+}
+
+#clear{
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    right: 60%;
+}
+
+
+div div div{
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    right: 35%;
+    padding: 5px;
+    bottom: 70px;
+    overflow-y: scroll;
+    border: 1px solid black;
+
+    background-color: white;
+}

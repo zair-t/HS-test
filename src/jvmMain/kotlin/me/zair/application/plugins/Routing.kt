@@ -28,8 +28,6 @@ fun Application.configureRouting() {
             validate { credentials ->
                 var flag = true
                 for (user in dao.allUsers()) {
-                    println(credentials.name + "\t" + credentials.password)
-                    println("\t" + user.login + "\t" + user.password)
                     if (credentials.name == user.login && credentials.password == user.password) {
                         userLogin = user.login
                         flag = false
@@ -51,25 +49,31 @@ fun Application.configureRouting() {
             //to the /main path and responds with a html page
             post("/main") {
                 call.respondHtml {
+                    head{
+                        link(rel = "stylesheet", href = "/static/main.css", type = "text/css")
+                    }
                     body {
-                        form(action = "/main/chats/{name}", method = FormMethod.post) {
-                            p {
-                                +"Write name of chat to join: "
-                                textInput(name = "name")
+                        div{
+                            form(action = "/main/chats/{name}", method = FormMethod.post) {
+                                p {
+                                    +"Write name of chat to join: "
+                                    textInput(name = "name")
+                                }
+                                p {
+                                    submitInput() { value = "JOIN!" }
+                                }
                             }
-                            p {
-                                submitInput() { value = "JOIN!" }
+                            form(action = "/main/chats/creating", method = FormMethod.post) {
+                                p {
+                                    +"Write name of chat to create: "
+                                    textInput(name = "name")
+                                }
+                                p {
+                                    submitInput() { value = "CREATE!" }
+                                }
                             }
                         }
-                        form(action = "/main/chats/creating", method = FormMethod.post) {
-                            p {
-                                +"Write name of chat to create: "
-                                textInput(name = "name")
-                            }
-                            p {
-                                submitInput() { value = "CREATE!" }
-                            }
-                        }
+
                     }
                 }
             }
@@ -82,47 +86,61 @@ fun Application.configureRouting() {
                     link(rel = "stylesheet", href = "/static/login.css", type = "text/css")
                 }
                 body {
-                    form(
-                        action = "/main",
-                        encType = FormEncType.applicationXWwwFormUrlEncoded,
-                        method = FormMethod.post
-                    ) {
-                        p {
-                            +"Username:"
-                            textInput(name = "username")
+                    div{
+                        h2{
+                            +"Login"
                         }
-                        p {
-                            +"Password:"
-                            passwordInput(name = "password")
-                        }
-                        p {
-                            a("/register") { +"Have not an account yet? Register" }
-                        }
-                        p {
-                            a("/main") {
-                                +"Do not want to register? Sign in anonymously"
-                                userLogin = "anonymous"
+                        form(
+                            action = "/main",
+                            encType = FormEncType.applicationXWwwFormUrlEncoded,
+                            method = FormMethod.post
+                        ) {
+                            p {
+                                +"Username:"
+                                textInput(name = "username")
+                            }
+                            p {
+                                +"Password:"
+                                passwordInput(name = "password")
+                            }
+                            p {
+                                a("/register") { +"Have not an account yet? Register" }
+                            }
+                            p {
+                                a("/main") {
+                                    +"Do not want to register? Sign in anonymously"
+                                    userLogin = "anonymous"
+                                }
+                            }
+                            p {
+                                submitInput() { value = "Submit" }
                             }
                         }
-                        p {
-                            submitInput() { value = "Login" }
-                        }
                     }
+
+
                 }
             }
         }
         //The get function within the routing block receives GET requests made
         //to the /main path and responds with a html page
         get("/main"){
+            if(userLogin == null)
+                call.respond(HttpStatusCode.NotFound)
             call.respondHtml{
+                head{
+                    link(rel = "stylesheet", href = "/static/main.css", type = "text/css")
+                }
                 body {
-                    form(action = "/main/chats/{name}", method = FormMethod.post) {
-                        p {
-                            +"Write name of chat to join: "
-                            textInput(name = "name")
-                        }
-                        p {
-                            submitInput() { value = "JOIN!" }
+                    div{
+                        form(action = "/main/chats/{name}", method = FormMethod.post) {
+                            p {
+                                +"Write name of chat to join: "
+                                textInput(name = "name")
+                            }
+                            p {
+                                submitInput() { value = "JOIN!" }
+                            }
                         }
                     }
                 }
@@ -153,25 +171,33 @@ fun Application.configureRouting() {
         //to the /register path and responds with a html register page
         get("/register") {
             call.respondHtml {
+                head{
+                    link(rel = "stylesheet", href = "/static/register.css", type = "text/css")
+                }
                 body {
-                    form(
-                        action = "/",
-                        method = FormMethod.post
-                    ) {
-                        p {
-                            +"Enter your login:"
-                            textInput(name = "login")
+                    div{
+                        h2{
+                            + "Registration"
                         }
-                        p {
-                            +"Create password:"
-                            passwordInput(name = "password")
-                        }
-                        p {
-                            +"Repeat your password:"
-                            passwordInput(name = "repeatedPassword")
-                        }
-                        p {
-                            submitInput() { value = "Register" }
+                        form(
+                            action = "/",
+                            method = FormMethod.post
+                        ) {
+                            p {
+                                +"Enter your login:"
+                                textInput(name = "login")
+                            }
+                            p {
+                                +"Create password:"
+                                passwordInput(name = "password")
+                            }
+                            p {
+                                +"Repeat your password:"
+                                passwordInput(name = "repeatedPassword")
+                            }
+                            p {
+                                submitInput() { value = "Register" }
+                            }
                         }
                     }
                 }
@@ -186,11 +212,9 @@ fun Application.configureRouting() {
         get("/main/chats/{name}") {
             //if user don't login he cannot get access to this page
             if(userLogin == null)
-                call.respondHtml(HttpStatusCode.NotFound){}
+                call.respond(HttpStatusCode.NotFound)
             val name = call.parameters.getOrFail<String>("name").toString()
             val messages: List<Message> = dao.allMessages().filter { it.whatChat == name }
-            for (i in messages)
-                println(i.whoSent + "\t" + i.data)
             var isAdmin: Boolean = false
             for(i in dao.allChats())
                 if(i.name == name && i.admin == userLogin)
@@ -198,52 +222,61 @@ fun Application.configureRouting() {
             val n: Int = messages.size
             call.respondHtml {
                 head {
+                    link(rel = "stylesheet", href = "/static/chat.css", type = "text/css")
                     title("Full stack chat")
                 }
                 body {
-                    h1 {
-                        +name
-                    }
-                    h3 {
-                        +userLogin!!
-                    }
+                    div{
+                        h1 {
+                            + "Chat name: $name"
+                        }
+                        h2 {
+                            +"You signed in as $userLogin"
+                        }
 
-                    input {
-                        type = InputType.text
-                        id = "message"
-                    }
+                        input {
+                            type = InputType.text
+                            id = "message"
+                        }
 
-                    input {
-                        type = InputType.button
-                        id = "send"
-                    }
-                    if(n!=0) {
-                        p {
-                            h4 {
-                                +"OLD: "
-                            }
-                            //for old messages
-                            for (i in 0 until n) {
-                                +"[${messages[i].whoSent}]: ${messages[i].data}"
-                                if (i == n - 1)
-                                    h4 {
-                                        +"NEW: "
+                        input {
+                            type = InputType.button
+                            id = "send"
+                        }
+                        div{
+                            div{
+                                if (n != 0) {
+                                    p {
+                                        h4 {
+                                            +"OLD: "
+                                        }
+                                        //for old messages
+                                        for (i in 0 until n) {
+                                            +"[${messages[i].whoSent}]: ${messages[i].data}"
+                                            if (i == n - 1)
+                                                h4 {
+                                                    +"NEW: "
+                                                }
+                                            else
+                                                br { }
+                                        }
                                     }
-                                else
-                                    br { }
+                                }
+
+                                table {
+                                    id = "history"
+                                }
                             }
                         }
-                    }
 
-                    div {
-                        id = "history"
-                    }
 
-                    if(isAdmin)
-                        button {
-                            id = "clear"
-                        }
-                    script(src = "/static/fullStackWithKtor.js") {}
+                        if (isAdmin)
+                            input {
+                                type = InputType.button
+                                id = "clear"
+                            }
+                        script(src = "/static/fullStackWithKtor.js") {}
+                    }
                 }
             }
         }
